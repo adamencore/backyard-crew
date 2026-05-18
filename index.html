@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Back Yard Crew — Lawn Care in South Weber, Utah</title>
+<meta name="color-scheme" content="light" />
+<meta name="theme-color" content="#f5ede0" />
 <meta name="description" content="Local South Weber students Wyatt, Kaleb, and Charlie offering lawn mowing, edging, trimming, weed pulling, and yard clean-up. Most yards $40–$50. Neighborhood discount when multiple homes on the same street sign up." />
 <meta name="theme-color" content="#1f2419" />
 <meta name="color-scheme" content="light dark" />
@@ -45,9 +47,9 @@
     --banner-bg:  #253446;   /* BRAND NAVY — discount banner + service icons */
     --rule:       #d4c8a8;
     --gold:       #8aa48e;   /* (repurposed) bright sage accent — used for labels on dark surfaces */
-    --gold-soft:  #faf5ef;   /* (repurposed) cream — used for badges on dark surfaces */
+    --gold-soft:  #faf5ef;   /* (repurposed) cream — used for badges */
 
-    /* Accents used as TEXT (overridden brighter in dark mode for contrast) */
+    /* Accents used as text/border for callout chips */
     --accent:        #4f6856;
     --accent-bg:     rgba(79,104,86,.10);
     --accent-border: rgba(79,104,86,.25);
@@ -711,92 +713,6 @@
   .js .reveal{ opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s ease }
   .js .reveal.in{ opacity:1; transform:translateY(0) }
 
-  /* =========================================================
-     DARK MODE — adapts to OS / browser preference
-     ========================================================= */
-  @media (prefers-color-scheme: dark){
-    :root{
-      --ink:        #fdf9f2;
-      --deep:       #e3d8b8;
-      --bark:       #b5a878;
-      --paper:      #0d1320;
-      --paper-2:    #161e2e;
-      --card-bg:    #1a2334;
-      --rule:       #3a4458;
-
-      --accent:        #b0c8b4;   /* brighter sage for legible text on dark */
-      --accent-bg:     rgba(176,200,180,.10);
-      --accent-border: rgba(176,200,180,.28);
-    }
-    body{ background:var(--paper); color:var(--ink) }
-
-    /* Grain texture: lighten and reduce strength on dark */
-    body::before{
-      opacity:.20;
-      mix-blend-mode:screen;
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.94  0 0 0 0 0.89  0 0 0 0 0.78  0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    }
-
-    /* Top bar: keep contrast against the dark page */
-    .topbar{ background:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%) }
-    .topbar-inner{ color:var(--deep) }
-    .topbar-inner a{ color:var(--deep) !important }
-
-    /* Stitched divider colors */
-    .divider svg line{ stroke:#4a5237 !important }
-    .divider svg circle:nth-of-type(1){ fill:#b0c8b4 !important }
-    .divider svg circle:nth-of-type(2){ stroke:#b0c8b4 !important }
-
-    /* Service card pine silhouette: light, low-opacity */
-    .service::before{
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23d8c89a' opacity='.12'><path d='M40 6 L52 26 L46 26 L58 46 L50 46 L62 66 L18 66 L30 46 L22 46 L34 26 L28 26 Z'/></g></svg>");
-    }
-    .service:hover{
-      box-shadow:0 18px 32px -22px rgba(0,0,0,.7);
-      border-color:#b0c8b4;
-    }
-    .crew:hover{ box-shadow:0 18px 32px -22px rgba(0,0,0,.7) }
-
-    /* Hero title underline brush — use brighter green */
-    h1.hero-title em{ color:#b0c8b4 }
-    h1.hero-title em::after{
-      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'><path d='M2,9 C40,3 90,12 130,7 C170,3 200,11 238,5' fill='none' stroke='%23b0c8b4' stroke-width='3' stroke-linecap='round'/></svg>");
-    }
-    .h2 em{ color:#b0c8b4 }
-
-    /* The light-on-dark hero-marks decorative scribble: brighten */
-    .hero-marks g{ stroke:#d8c89a !important }
-
-    /* Pricing chip glow */
-    .price-card::after{
-      background:radial-gradient(circle at center, rgba(205,184,108,.18) 0%, transparent 70%);
-    }
-
-    /* Discount banner: needs a border so it doesn't melt into the dark page */
-    .pitch{
-      border:1px solid var(--rule);
-      box-shadow:0 30px 60px -40px rgba(0,0,0,.8);
-    }
-
-    /* Buttons: same idea but slightly brighter shadows */
-    .btn{ box-shadow:0 8px 18px -10px rgba(0,0,0,.7) }
-    .btn:hover{ box-shadow:0 14px 24px -12px rgba(0,0,0,.7) }
-
-    /* Garden card: deeper shadow under the photo */
-    .garden-card{
-      box-shadow:
-        0 1px 0 rgba(255,255,255,.05) inset,
-        0 30px 60px -30px rgba(0,0,0,.7),
-        0 8px 20px -10px rgba(0,0,0,.6);
-    }
-
-    /* Footer rule */
-    footer{ border-top-color:var(--rule); color:var(--bark) }
-    footer .footmark{ color:var(--deep) }
-
-    /* Reading progress bar */
-    .progress{ box-shadow:0 0 12px rgba(180,203,138,.45) }
-  }
 
   /* Reduced motion */
   @media (prefers-reduced-motion: reduce){
@@ -843,10 +759,7 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-logo">
-        <picture>
-          <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
-          <img src="logo.png" alt="Back Yard Crew logo — a stylized leaf with sun rays above the words Back Yard Crew" />
-        </picture>
+        <img src="logo.png" alt="Back Yard Crew logo — a stylized leaf with sun rays above the words Back Yard Crew" />
       </div>
 
       <div class="hero-text">
@@ -1111,10 +1024,7 @@
     <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
 
     <div class="about-logo">
-      <picture>
-        <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
-        <img src="logo.png" alt="Back Yard Crew" />
-      </picture>
+      <img src="logo.png" alt="Back Yard Crew" />
     </div>
 
     <div class="about-eyebrow"><span class="label">About Us</span></div>
