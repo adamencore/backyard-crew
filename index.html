@@ -1,0 +1,1562 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Back Yard Crew — Lawn Care in South Weber, Utah</title>
+<meta name="description" content="Local South Weber students Wyatt, Kaleb, and Charlie offering lawn mowing, edging, trimming, weed pulling, and yard clean-up. Most yards $40–$50. Neighborhood discount when multiple homes on the same street sign up." />
+<meta name="theme-color" content="#1f2419" />
+<meta name="color-scheme" content="light dark" />
+
+<meta property="og:title" content="Back Yard Crew — Lawn Care in South Weber" />
+<meta property="og:description" content="Local students Wyatt, Kaleb, and Charlie — lawn care this summer. Most yards $40–$50." />
+<meta property="og:image" content="logo.png" />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="logo.png" type="image/jpeg" />
+
+<!-- Mark JS as available immediately so reveal animations apply only when we can drive them -->
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400..900,0..100&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Brand-anchored palette — exact colors sampled from the new logo */
+    --ink:        #0e1521;   /* near-black navy (primary text) */
+    --deep:       #253446;   /* BRAND NAVY — exact from logo "BACK YARD" text */
+    --moss:       #68826c;   /* BRAND SAGE — exact from logo mark + "CREW" */
+    --sage:       #8aa48e;   /* lighter sage (decorative + dark-bg surfaces) */
+    --clay:       #8b6f47;
+    --bark:       #5a4632;
+    --cream:      #fdf9f2;   /* BRAND CREAM — exact from logo background */
+    --paper:      #f5ede0;   /* page background (slightly warmer than logo bg) */
+    --paper-2:    #ece2d2;   /* deeper paper for top strip gradient */
+    --card-bg:    #fcf7ec;   /* card surface */
+    --banner-bg:  #253446;   /* BRAND NAVY — discount banner + service icons */
+    --rule:       #d4c8a8;
+    --gold:       #8aa48e;   /* (repurposed) bright sage accent — used for labels on dark surfaces */
+    --gold-soft:  #faf5ef;   /* (repurposed) cream — used for badges on dark surfaces */
+
+    /* Accents used as TEXT (overridden brighter in dark mode for contrast) */
+    --accent:        #4f6856;
+    --accent-bg:     rgba(79,104,86,.10);
+    --accent-border: rgba(79,104,86,.25);
+
+    --topo-stroke: %230e1521;
+    --pine-fill:   %23253446;
+
+    --font-display: "Fraunces", ui-serif, Georgia, serif;
+    --font-body:    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --maxw: 1120px; --radius: 22px;
+  }
+  *,*::before,*::after{ box-sizing:border-box }
+  html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--font-body); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{ max-width:100%; display:block }
+  a{ color:inherit }
+  button{ font:inherit; cursor:pointer }
+
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    opacity:.35; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.15  0 0 0 0 0.13  0 0 0 0 0.08  0 0 0 0.10 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .wrap{ position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 24px }
+
+  /* Reading progress bar */
+  .progress{
+    position:fixed; top:0; left:0; height:3px; width:0%;
+    background:linear-gradient(90deg, var(--moss), var(--gold));
+    z-index:50; transition:width .08s linear;
+    box-shadow:0 0 12px rgba(74,93,58,.45);
+  }
+
+  /* Top bar */
+  .topbar{
+    position:relative; z-index:2;
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  }
+  .topbar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; max-width:var(--maxw); margin:0 auto;
+    font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--deep); font-weight:600;
+    gap:12px;
+  }
+  .topbar-inner > div{ display:flex; align-items:center; white-space:nowrap; min-width:0 }
+  .pulse-dot{
+    display:inline-block; width:8px; height:8px; border-radius:50%;
+    background:var(--moss); margin-right:8px; vertical-align:middle; position:relative;
+  }
+  .pulse-dot::before{
+    content:""; position:absolute; inset:-4px; border-radius:50%;
+    background:var(--moss); opacity:.5; animation:pulse 2.2s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ transform:scale(.6); opacity:.55 }
+    70%{ transform:scale(2.4); opacity:0 }
+    100%{ transform:scale(2.4); opacity:0 }
+  }
+  .topbar-inner span.sep{ margin:0 10px; opacity:.5 }
+  .topbar-inner .right{ display:flex; align-items:center; gap:14px }
+  @media (max-width: 960px){
+    .topbar-inner .hide-sm{ display:none }
+  }
+  @media (max-width: 640px){
+    .topbar-inner{ font-size:10.5px; padding:12px 16px; letter-spacing:.10em; gap:8px }
+    .topbar-inner .right{ gap:10px }
+    .topbar-inner span.sep{ margin:0 6px }
+  }
+
+  /* Hero */
+  .hero{ position:relative; padding:48px 0 28px; overflow:hidden }
+  .hero-grid{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:32px;
+    text-align:center;
+  }
+  .hero-logo{
+    position:relative;
+    width:100%; max-width:560px;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    animation:logoIn .9s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .hero-logo:hover{ transform:scale(1.015) }
+  .hero-logo img{ width:100% }
+  @keyframes logoIn{
+    from{ opacity:0; transform:translateY(20px) }
+    to  { opacity:1; transform:translateY(0) }
+  }
+  .hero-text{ position:relative; max-width:760px }
+  .hero-text .cta-row{ justify-content:center }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:11.5px; font-weight:700; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--accent);
+    background:var(--accent-bg);
+    border:1px solid var(--accent-border);
+    padding:7px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow svg{ width:14px; height:14px }
+  h1.hero-title{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 144, "wght" 700, "SOFT" 100;
+    font-size:clamp(36px, 5.8vw, 70px);
+    line-height:.98; letter-spacing:-.02em;
+    color:var(--ink); margin:0 0 18px;
+  }
+  h1.hero-title em{
+    font-style:italic;
+    font-variation-settings:"opsz" 144, "wght" 500, "SOFT" 100;
+    color:var(--moss); position:relative; white-space:nowrap;
+  }
+  h1.hero-title em::after{
+    content:""; position:absolute; left:-2%; right:-2%; bottom:-.04em;
+    height:.18em;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'><path d='M2,9 C40,3 90,12 130,7 C170,3 200,11 238,5' fill='none' stroke='%234a5d3a' stroke-width='3' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat; background-size:100% 100%; opacity:.85;
+  }
+  .hero-lede{
+    font-size:clamp(15px, 1.7vw, 17px); line-height:1.6;
+    color:var(--deep); max-width:54ch; margin:0 0 30px;
+  }
+  .cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:6px }
+  .btn{
+    --bg: var(--ink); --fg: var(--paper);
+    display:inline-flex; align-items:center; gap:12px;
+    background:var(--bg); color:var(--fg); text-decoration:none;
+    padding:16px 22px; border-radius:14px; font-weight:700;
+    font-size:15px; letter-spacing:.01em; border:none;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    box-shadow:0 8px 18px -10px rgba(29,34,24,.6);
+  }
+  .btn:hover{ transform:translateY(-2px); box-shadow:0 14px 24px -12px rgba(29,34,24,.55) }
+  .btn:active{ transform:translateY(0) }
+  .btn .who{ display:flex; flex-direction:column; align-items:flex-start; line-height:1.1 }
+  .btn .who small{
+    font-weight:500; font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    opacity:.7; margin-bottom:2px;
+  }
+  .btn.alt{ --bg: var(--moss) }
+  .btn .ring{
+    width:34px; height:34px; display:grid; place-items:center;
+    border-radius:50%; background:rgba(248,240,216,.12);
+  }
+  .btn .ring svg{ width:18px; height:18px; stroke:var(--paper) }
+  .hero-marks{
+    position:absolute; right:-30px; top:-20px; width:260px; height:260px;
+    pointer-events:none; opacity:.13; z-index:0;
+  }
+  @media (max-width: 840px){
+    .hero{ padding:32px 0 16px }
+    .hero-grid{ gap:24px }
+    .hero-marks{ display:none }
+  }
+
+  /* Divider */
+  .divider{ position:relative; height:50px; margin:18px 0 6px }
+  .divider svg{ position:absolute; inset:0; width:100%; height:100% }
+
+  /* Animated mowing stripes */
+  .mow-divider{
+    height:36px; margin:8px 0 0;
+    display:flex; align-items:center; gap:14px;
+  }
+  .mow-divider::before, .mow-divider::after{
+    content:""; flex:1; height:1px;
+    border-bottom:1px dashed var(--rule);
+  }
+  .mow-divider svg{
+    width:18px; height:18px; color:var(--moss);
+    flex:0 0 auto; opacity:.7;
+  }
+
+  /* Sections */
+  .section{ padding:64px 0 }
+  .section-head{ display:flex; flex-direction:column; gap:8px; margin-bottom:36px }
+  .label{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:11.5px; font-weight:700; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--accent);
+  }
+  .label::before{
+    content:""; width:13px; height:13px; flex:0 0 auto;
+    background-color:currentColor;
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22V12'/><path d='M12 12C12 8 9 5 4 5c0 5 3 8 8 7z'/><path d='M12 12C12 9 14 6 18 6c0 4-3 7-6 6z'/></g></svg>") no-repeat center / contain;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><g fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22V12'/><path d='M12 12C12 8 9 5 4 5c0 5 3 8 8 7z'/><path d='M12 12C12 9 14 6 18 6c0 4-3 7-6 6z'/></g></svg>") no-repeat center / contain;
+  }
+  .h2{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 100, "wght" 650, "SOFT" 100;
+    font-size:clamp(28px, 4.1vw, 44px); line-height:1.04;
+    letter-spacing:-.015em; color:var(--ink); margin:0; max-width:22ch;
+  }
+  .h2 em{
+    font-style:italic; color:var(--moss);
+    font-variation-settings:"opsz" 100, "wght" 500, "SOFT" 100;
+  }
+
+  /* Lawn mowing mini-game */
+  .lawn-game{
+    margin:18px auto 0;
+    max-width:560px;
+    width:100%;
+  }
+  .lawn-game-hint{
+    display:block; text-align:center;
+    font-size:11px; font-weight:700; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--accent);
+    margin-bottom:8px;
+  }
+  .lawn-game-field{
+    position:relative;
+    width:100%; height:140px;
+    border-radius:18px;
+    border:1px solid var(--rule);
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(138,164,142,.08), transparent 60%),
+      linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.06) 100%);
+    overflow:hidden;
+    touch-action:none;
+    -webkit-user-select:none; user-select:none;
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 24 24'><g fill='%23253446' stroke='%23253446' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='2.5' y='13' width='13' height='5' rx='1'/><rect x='6.5' y='10' width='5' height='3' rx='0.5'/><path d='M15 13 L21 5' fill='none' stroke='%23253446' stroke-width='2'/><path d='M19 3 L23 6' fill='none' stroke='%23253446' stroke-width='2'/><circle cx='5.5' cy='20' r='1.8'/><circle cx='12.5' cy='20' r='1.8'/></g></svg>") 12 18, crosshair;
+    transition:border-color .3s;
+  }
+  .lawn-game-field:hover{ border-color:var(--accent-border) }
+  .lawn-game-field svg{ width:100%; height:100%; display:block }
+  .lawn-game-field .blade{
+    transition:d .35s cubic-bezier(.34, 1.4, .64, 1);
+  }
+  .lawn-game-field .lg-head{
+    transition:opacity .2s ease-out, transform .35s cubic-bezier(.34, 1.4, .64, 1);
+    transform-box:fill-box;
+  }
+  .lawn-game-field .lg-particle{
+    pointer-events:none;
+    transform-box:fill-box;
+    transform-origin:center;
+  }
+  .lawn-game-meta{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:10px; margin-top:10px; padding:0 4px;
+    font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--bark); font-weight:600;
+  }
+  .lawn-game-counter{ font-style:italic; font-weight:500; text-transform:none; letter-spacing:.02em; font-size:13px }
+  .lawn-game-reset{
+    background:transparent; border:1px solid var(--rule);
+    border-radius:999px; padding:6px 14px;
+    font:inherit; font-size:11px; letter-spacing:.16em;
+    text-transform:uppercase; font-weight:700;
+    color:var(--accent); cursor:pointer;
+    transition:all .2s;
+  }
+  .lawn-game-reset:hover{ background:var(--accent-bg); border-color:var(--accent-border) }
+  .lawn-game-reset:active{ transform:scale(.96) }
+
+  /* Services */
+  .services{ display:grid; grid-template-columns: repeat(4, 1fr); gap:18px }
+  .service{
+    position:relative; background:var(--card-bg);
+    border:1px solid var(--rule); border-radius:var(--radius);
+    padding:24px 22px 26px;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    overflow:hidden;
+  }
+  .service::before{
+    content:""; position:absolute; right:-8px; bottom:-8px;
+    width:90px; height:90px;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%232b3825' opacity='.10'><path d='M40 6 L52 26 L46 26 L58 46 L50 46 L62 66 L18 66 L30 46 L22 46 L34 26 L28 26 Z'/></g></svg>");
+    background-repeat:no-repeat; background-size:contain;
+    transition:transform .4s ease;
+  }
+  .service:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 32px -22px rgba(29,34,24,.45);
+    border-color:var(--moss);
+  }
+  .service:hover::before{ transform:translate(-4px,-4px) rotate(-6deg) }
+  .service-icon{
+    width:46px; height:46px; border-radius:12px;
+    background:var(--banner-bg); color:var(--cream);
+    display:grid; place-items:center; margin-bottom:18px;
+  }
+  .service-icon svg{ width:24px; height:24px; stroke:var(--cream) }
+  .service h3{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 600, "SOFT" 100;
+    font-size:20px; line-height:1.18; margin:0 0 6px; color:var(--ink);
+  }
+  .service p{ margin:0; color:var(--bark); font-size:14px; line-height:1.55 }
+  @media (max-width: 920px){ .services{ grid-template-columns: repeat(2, 1fr) } }
+  @media (max-width: 480px){ .services{ grid-template-columns: 1fr } }
+
+  /* Parallax photo band */
+  .showcase{
+    position:relative; height:min(70vh, 620px); min-height:420px;
+    overflow:hidden; margin-top:8px;
+  }
+  .showcase-img{
+    position:absolute; top:-15%; left:0; right:0; bottom:-15%;
+    background-image:url('lawn.jpg');
+    background-size:cover; background-position:center;
+    will-change:transform; transform:translate3d(0,0,0);
+  }
+  .showcase-img::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg,
+      rgba(0,0,0,.30) 0%,
+      rgba(0,0,0,.05) 30%,
+      rgba(0,0,0,.45) 65%,
+      rgba(0,0,0,.78) 100%);
+  }
+  .showcase-content{
+    position:absolute; inset:0;
+    display:flex; align-items:flex-end; padding:48px 32px;
+  }
+  .showcase-inner{
+    max-width:var(--maxw); margin:0 auto; width:100%;
+    color:var(--cream); position:relative;
+  }
+  .showcase-content .label{ color:var(--gold); margin-bottom:10px; display:block }
+  .showcase-content h2{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 144, "wght" 700, "SOFT" 100;
+    font-size:clamp(30px, 4.8vw, 58px);
+    line-height:1; letter-spacing:-.02em;
+    color:#ffffff; margin:0 0 14px;
+    max-width:18ch;
+    text-shadow:0 2px 20px rgba(0,0,0,.5), 0 1px 3px rgba(0,0,0,.6);
+  }
+  .showcase-content h2 em{
+    font-style:italic; color:var(--gold);
+    font-variation-settings:"opsz" 144, "wght" 500, "SOFT" 100;
+  }
+  .showcase-content p{
+    font-size:clamp(14px, 1.6vw, 17px);
+    max-width:44ch; color:#ffffff; margin:0;
+    font-weight:500;
+    text-shadow:0 2px 14px rgba(0,0,0,.7), 0 1px 2px rgba(0,0,0,.65);
+  }
+
+  /* Pricing + garden card */
+  .pricing-grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:32px; align-items:center;
+  }
+  .price-card{
+    background:var(--card-bg); border:1px solid var(--rule);
+    border-radius:var(--radius); padding:36px;
+    position:relative; overflow:hidden;
+  }
+  .price-card::after{
+    content:""; position:absolute; right:-30px; top:-30px;
+    width:160px; height:160px; border-radius:50%;
+    background:radial-gradient(circle at center, rgba(205,184,108,.25) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .price-headline{
+    display:flex; flex-direction:column; align-items:flex-start;
+    gap:2px; margin-bottom:10px;
+  }
+  .price-prefix{
+    font-size:11.5px; font-weight:700; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--accent);
+  }
+  .price{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 144, "wght" 750, "SOFT" 100;
+    font-size:clamp(50px, 7.4vw, 76px); line-height:.95;
+    color:var(--ink); letter-spacing:-.02em;
+  }
+  .price-sub{ color:var(--bark); font-size:15px; margin:0 0 24px; max-width:42ch }
+  .included{ list-style:none; padding:0; margin:0 0 22px; display:grid; gap:10px }
+  .included li{
+    display:flex; align-items:center; gap:12px;
+    font-size:14.5px; color:var(--deep);
+  }
+  .included li svg{ flex:0 0 auto; width:20px; height:20px; color:var(--moss) }
+  .price-note{
+    font-size:13px; color:var(--bark);
+    border-top:1px dashed var(--rule); padding-top:14px;
+    margin:0; line-height:1.5;
+  }
+  .garden-card{
+    position:relative; border-radius:var(--radius); overflow:hidden;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,.6) inset,
+      0 30px 60px -30px rgba(29,34,24,.35),
+      0 8px 20px -10px rgba(29,34,24,.25);
+    transform:rotate(1.2deg);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1);
+    background:#000;
+  }
+  .garden-card:hover{ transform:rotate(0) scale(1.01) }
+  .garden-card img{ width:100%; display:block; transition:transform .8s ease }
+  .garden-card:hover img{ transform:scale(1.05) }
+  .garden-card .caption{
+    position:absolute; left:18px; bottom:18px;
+    background:rgba(29,34,24,.78); color:var(--cream);
+    padding:8px 14px; border-radius:999px;
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+  }
+  @media (max-width:860px){
+    .pricing-grid{ grid-template-columns:1fr; gap:24px }
+    .garden-card{ transform:rotate(0) }
+    .price-card{ padding:28px }
+  }
+
+  /* Discount banner */
+  .pitch{
+    position:relative; background:var(--banner-bg); color:var(--cream);
+    border-radius:28px; padding:48px 44px; margin:28px 0; overflow:hidden;
+  }
+  .pitch::before{
+    content:""; position:absolute; inset:auto -2% -5% -2%; height:60%;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 200' preserveAspectRatio='none'><g fill='none' stroke='%23768a5a' stroke-width='2' opacity='.35'><path d='M0,180 L80,90 L120,140 L180,60 L240,150 L300,80 L360,140 L420,70 L480,160 L540,100 L600,170'/><path d='M0,200 L60,140 L120,180 L200,110 L260,170 L320,130 L400,180 L460,120 L520,170 L600,200'/></g></svg>");
+    background-repeat:no-repeat; background-size:cover; pointer-events:none;
+  }
+  .pitch-inner{ position:relative; z-index:1 }
+  .pitch .label{ color:var(--gold) }
+  .pitch h2{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 144, "wght" 700, "SOFT" 100;
+    font-size:clamp(26px, 3.8vw, 40px); line-height:1.06;
+    letter-spacing:-.015em; margin:8px 0 12px; max-width:18ch; color:var(--cream);
+  }
+  .pitch p{ font-size:16px; max-width:60ch; color:#e9dfba; line-height:1.6; margin:0 }
+  .pitch .badge{
+    position:absolute; top:34px; right:38px;
+    width:130px; height:130px; border-radius:50%;
+    background:var(--gold-soft); color:var(--banner-bg);
+    display:grid; place-items:center;
+    transform:rotate(-8deg);
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 700, "SOFT" 100;
+    text-align:center; line-height:1;
+    box-shadow:0 14px 28px -12px rgba(0,0,0,.4);
+    will-change:transform;
+  }
+  .pitch .badge .save{
+    font-size:13px; letter-spacing:.16em; text-transform:uppercase; font-weight:700;
+  }
+  .pitch .badge .amt{
+    font-size:28px; margin-top:4px;
+    font-variation-settings:"opsz" 144, "wght" 700;
+  }
+  .pitch .badge .small{
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+    margin-top:4px; opacity:.7;
+  }
+  @media (max-width:780px){
+    .pitch{ padding:36px 26px }
+    .pitch .badge{ position:static; margin-bottom:22px; transform:rotate(-4deg) }
+  }
+
+  /* Contact */
+  .contact-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:18px }
+  .crew{
+    background:var(--card-bg); border:1px solid var(--rule);
+    border-radius:var(--radius); padding:28px;
+    display:flex; gap:22px; align-items:center;
+    transition:transform .25s ease, box-shadow .25s ease;
+    text-decoration:none; color:inherit;
+  }
+  .crew:hover{ transform:translateY(-3px); box-shadow:0 18px 32px -22px rgba(29,34,24,.45) }
+  .crew.pending{
+    border-style:dashed;
+    border-color:var(--accent-border);
+    background:transparent;
+  }
+  .crew.pending:hover{ transform:none; box-shadow:none }
+  .crew.pending .avatar{
+    background:transparent;
+    color:var(--accent);
+    box-shadow:inset 0 0 0 2px var(--accent), 0 0 0 0 transparent;
+  }
+  .crew.pending .who-num{ color:var(--bark); font-style:italic; font-weight:500 }
+  .crew .avatar{
+    width:64px; height:64px; border-radius:50%;
+    background:var(--moss); color:var(--cream);
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 700, "SOFT" 100;
+    font-size:28px; display:grid; place-items:center;
+    flex:0 0 auto;
+    box-shadow:inset 0 0 0 3px var(--cream), 0 0 0 4px var(--moss);
+  }
+  .crew .meta{ display:flex; flex-direction:column; gap:2px; min-width:0 }
+  .crew .who-name{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 650, "SOFT" 100;
+    font-size:22px; line-height:1.1; color:var(--ink);
+  }
+  .crew .who-num{
+    font-family:var(--font-body); font-size:17px; font-weight:600;
+    color:var(--deep); letter-spacing:.01em;
+  }
+  .crew .who-tag{
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; margin-top:6px;
+  }
+  @media (max-width:980px){ .contact-grid{ grid-template-columns:repeat(2, 1fr) } }
+  @media (max-width:980px) and (min-width:621px){
+    /* When 3 cards fall into a 2-col grid, the orphan centers in the bottom row */
+    .contact-grid .crew:last-child:nth-child(2n+1){
+      grid-column:1 / -1;
+      max-width:calc((100% - 18px) / 2);
+      justify-self:center;
+    }
+  }
+  @media (max-width:620px){ .contact-grid{ grid-template-columns:1fr } }
+
+  /* Footer */
+  footer{
+    margin-top:30px; padding:40px 0 60px;
+    text-align:center; color:var(--bark);
+    border-top:1px solid var(--rule);
+  }
+  footer .footmark{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 600, "SOFT" 100;
+    font-size:17px; color:var(--deep); margin-bottom:6px;
+  }
+  footer .footnote{ font-size:13px; letter-spacing:.06em }
+
+  /* =========================================================
+     ABOUT MODAL
+     ========================================================= */
+  .modal{
+    border:none; padding:0;
+    border-radius:28px;
+    background:var(--card-bg);
+    color:var(--ink);
+    max-width:760px;
+    width:calc(100% - 28px);
+    max-height:92vh;
+    box-shadow:0 40px 80px -20px rgba(0,0,0,.45), 0 12px 30px -10px rgba(0,0,0,.25);
+    overflow:hidden;
+  }
+  .modal::backdrop{
+    background:rgba(14,21,33,.62);
+    -webkit-backdrop-filter:blur(4px);
+    backdrop-filter:blur(4px);
+  }
+  .modal[open]{ animation:modalIn .35s cubic-bezier(.2,.8,.2,1) }
+  @keyframes modalIn{
+    from{ opacity:0; transform:translateY(20px) scale(.98) }
+    to  { opacity:1; transform:translateY(0)    scale(1) }
+  }
+  .modal-inner{
+    padding:48px 40px 40px;
+    overflow-y:auto;
+    max-height:92vh;
+    position:relative;
+  }
+  .modal-close{
+    position:absolute; top:16px; right:16px;
+    width:38px; height:38px;
+    border-radius:50%;
+    background:var(--paper); border:1px solid var(--rule);
+    color:var(--ink); cursor:pointer;
+    display:grid; place-items:center;
+    font-size:22px; line-height:1;
+    transition:transform .2s ease, background .2s ease;
+    z-index:2;
+  }
+  .modal-close:hover{ background:var(--paper-2); transform:rotate(90deg) }
+
+  .about-logo{
+    width:96px; height:96px;
+    border-radius:16px;
+    background:#fdf9f2;
+    overflow:hidden;
+    margin:0 auto 22px;
+    box-shadow:0 1px 0 rgba(255,255,255,.6) inset,
+               0 14px 30px -16px rgba(14,21,33,.4);
+  }
+  .about-logo img{ width:100%; display:block }
+
+  .about-eyebrow{ text-align:center; margin-bottom:8px; display:flex; justify-content:center }
+
+  .about-headline{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 144, "wght" 700, "SOFT" 100;
+    font-size:clamp(28px, 4vw, 40px);
+    line-height:1.05; letter-spacing:-.015em;
+    color:var(--ink);
+    text-align:center;
+    margin:0 auto 18px;
+    max-width:18ch;
+  }
+  .about-headline em{
+    font-style:italic; color:var(--moss);
+    font-variation-settings:"opsz" 144, "wght" 500, "SOFT" 100;
+  }
+
+  .about-body{
+    font-size:16px; line-height:1.65;
+    color:var(--deep);
+    text-align:center;
+    max-width:55ch;
+    margin:0 auto 32px;
+  }
+
+  .about-pillars{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+    margin-top:8px;
+  }
+  .pillar{
+    text-align:center;
+    padding:18px 12px;
+  }
+  .pillar-icon{
+    width:56px; height:56px;
+    margin:0 auto 14px;
+    border-radius:14px;
+    background:var(--banner-bg);
+    display:grid; place-items:center;
+    color:var(--cream);
+  }
+  .pillar-icon svg{ width:28px; height:28px; stroke:var(--cream) }
+  .pillar h4{
+    font-family:var(--font-display);
+    font-variation-settings:"opsz" 36, "wght" 700, "SOFT" 100;
+    font-size:13px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 8px;
+  }
+  .pillar p{
+    font-size:14px; line-height:1.5;
+    color:var(--bark);
+    margin:0;
+  }
+
+  @media (max-width: 600px){
+    .modal-inner{ padding:36px 22px 28px }
+    .about-pillars{ grid-template-columns:1fr; gap:10px }
+    .pillar{
+      display:flex; gap:16px;
+      text-align:left; align-items:flex-start;
+      padding:14px 6px;
+    }
+    .pillar-icon{ flex:0 0 auto; margin:0; width:48px; height:48px }
+    .pillar h4{ margin-bottom:4px }
+  }
+
+  /* Reveal — only hides content if JS is active (sets .js on <html>). 
+     Without JS, content shows normally. */
+  .js .reveal{ opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s ease }
+  .js .reveal.in{ opacity:1; transform:translateY(0) }
+
+  /* =========================================================
+     DARK MODE — adapts to OS / browser preference
+     ========================================================= */
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:        #fdf9f2;
+      --deep:       #e3d8b8;
+      --bark:       #b5a878;
+      --paper:      #0d1320;
+      --paper-2:    #161e2e;
+      --card-bg:    #1a2334;
+      --rule:       #3a4458;
+
+      --accent:        #b0c8b4;   /* brighter sage for legible text on dark */
+      --accent-bg:     rgba(176,200,180,.10);
+      --accent-border: rgba(176,200,180,.28);
+    }
+    body{ background:var(--paper); color:var(--ink) }
+
+    /* Grain texture: lighten and reduce strength on dark */
+    body::before{
+      opacity:.20;
+      mix-blend-mode:screen;
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.94  0 0 0 0 0.89  0 0 0 0 0.78  0 0 0 0.10 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    }
+
+    /* Top bar: keep contrast against the dark page */
+    .topbar{ background:linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%) }
+    .topbar-inner{ color:var(--deep) }
+    .topbar-inner a{ color:var(--deep) !important }
+
+    /* Stitched divider colors */
+    .divider svg line{ stroke:#4a5237 !important }
+    .divider svg circle:nth-of-type(1){ fill:#b0c8b4 !important }
+    .divider svg circle:nth-of-type(2){ stroke:#b0c8b4 !important }
+
+    /* Service card pine silhouette: light, low-opacity */
+    .service::before{
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><g fill='%23d8c89a' opacity='.12'><path d='M40 6 L52 26 L46 26 L58 46 L50 46 L62 66 L18 66 L30 46 L22 46 L34 26 L28 26 Z'/></g></svg>");
+    }
+    .service:hover{
+      box-shadow:0 18px 32px -22px rgba(0,0,0,.7);
+      border-color:#b0c8b4;
+    }
+    .crew:hover{ box-shadow:0 18px 32px -22px rgba(0,0,0,.7) }
+
+    /* Hero title underline brush — use brighter green */
+    h1.hero-title em{ color:#b0c8b4 }
+    h1.hero-title em::after{
+      background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 14' preserveAspectRatio='none'><path d='M2,9 C40,3 90,12 130,7 C170,3 200,11 238,5' fill='none' stroke='%23b0c8b4' stroke-width='3' stroke-linecap='round'/></svg>");
+    }
+    .h2 em{ color:#b0c8b4 }
+
+    /* The light-on-dark hero-marks decorative scribble: brighten */
+    .hero-marks g{ stroke:#d8c89a !important }
+
+    /* Pricing chip glow */
+    .price-card::after{
+      background:radial-gradient(circle at center, rgba(205,184,108,.18) 0%, transparent 70%);
+    }
+
+    /* Discount banner: needs a border so it doesn't melt into the dark page */
+    .pitch{
+      border:1px solid var(--rule);
+      box-shadow:0 30px 60px -40px rgba(0,0,0,.8);
+    }
+
+    /* Buttons: same idea but slightly brighter shadows */
+    .btn{ box-shadow:0 8px 18px -10px rgba(0,0,0,.7) }
+    .btn:hover{ box-shadow:0 14px 24px -12px rgba(0,0,0,.7) }
+
+    /* Garden card: deeper shadow under the photo */
+    .garden-card{
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.05) inset,
+        0 30px 60px -30px rgba(0,0,0,.7),
+        0 8px 20px -10px rgba(0,0,0,.6);
+    }
+
+    /* Footer rule */
+    footer{ border-top-color:var(--rule); color:var(--bark) }
+    footer .footmark{ color:var(--deep) }
+
+    /* Reading progress bar */
+    .progress{ box-shadow:0 0 12px rgba(180,203,138,.45) }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *, *::before, *::after{
+      animation-duration:.001ms !important;
+      animation-iteration-count:1 !important;
+      transition-duration:.001ms !important;
+    }
+    .showcase-img{ transform:none !important }
+    .reveal{ opacity:1; transform:none }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div><span class="pulse-dot"></span><span class="hide-sm">Summer 2026 · </span>Now Booking</div>
+    <div class="right">
+      <span class="hide-sm">South Weber, Utah</span>
+      <span class="sep hide-sm">·</span>
+      <a href="#about" data-modal-open="about-modal" class="hide-sm" style="text-decoration:none;color:var(--deep);white-space:nowrap">About</a>
+      <span class="sep hide-sm">·</span>
+      <a href="#pricing" style="text-decoration:none;color:var(--deep);white-space:nowrap">Pricing&nbsp;↓</a>
+      <span class="sep">·</span>
+      <a href="#contact" style="text-decoration:none;color:var(--deep);white-space:nowrap">Contact&nbsp;↓</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <svg class="hero-marks" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="none" stroke="#1d2218" stroke-width="1.5" stroke-linecap="round">
+      <path d="M20,80 Q60,40 110,70 T200,60" />
+      <path d="M10,110 Q60,70 120,100 T210,90" />
+      <path d="M30,140 Q70,100 130,130 T220,120" />
+    </g>
+  </svg>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-logo">
+        <picture>
+          <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
+          <img src="logo.png" alt="Back Yard Crew logo — a stylized leaf with sun rays above the words Back Yard Crew" />
+        </picture>
+      </div>
+
+      <div class="hero-text">
+        <span class="eyebrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22V11"/>
+            <path d="M12 11C12 7 9 4 4 4c0 5 3 8 8 8z"/>
+            <path d="M12 11C12 8 14 5 18 5c0 4-3 7-6 7z"/>
+          </svg>
+          South Weber · Summer 2026
+        </span>
+
+        <h1 class="hero-title">
+          Lawn care, by <em>your&nbsp;neighbors</em>.
+        </h1>
+
+        <p class="hero-lede">
+          We're local students — Wyatt, Kaleb, and Charlie — keeping South Weber
+          yards looking sharp all summer. Mowing, edging, trimming, weed pulling,
+          and clean-up. Reliable work, fair prices, and a friendly wave on the
+          way home.
+        </p>
+
+        <div class="lawn-game" aria-label="Mini lawn mowing game">
+          <span class="lawn-game-hint">↓ Drag across to mow ↓</span>
+          <div class="lawn-game-field" data-lawn-game></div>
+          <div class="lawn-game-meta">
+            <span class="lawn-game-counter" data-lawn-counter>Try it — drag your finger</span>
+            <button type="button" class="lawn-game-reset" data-lawn-reset>↻ Regrow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="wrap divider" aria-hidden="true">
+  <svg viewBox="0 0 1100 50" preserveAspectRatio="none">
+    <line x1="0" y1="25" x2="1100" y2="25" stroke="#d8c89a" stroke-width="1.4" stroke-dasharray="6 8"/>
+    <circle cx="550" cy="25" r="6" fill="#4a5d3a"/>
+    <circle cx="550" cy="25" r="11" fill="none" stroke="#4a5d3a" stroke-width="1.2" opacity=".5"/>
+  </svg>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">What we do</span>
+      <h2 class="h2">Four services. Done right, every visit.</h2>
+    </div>
+
+    <div class="services">
+      <div class="service reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <!-- mower deck -->
+            <rect x="2.5" y="13" width="13" height="5" rx="1"/>
+            <!-- engine block on top -->
+            <rect x="6.5" y="10" width="5" height="3" rx="0.5"/>
+            <!-- handle -->
+            <path d="M15 13 L21 5"/>
+            <!-- handle grip -->
+            <path d="M19 3 L23 6"/>
+            <!-- wheels -->
+            <circle cx="5.5" cy="20" r="1.8"/>
+            <circle cx="12.5" cy="20" r="1.8"/>
+          </svg>
+        </div>
+        <h3>Lawn Mowing</h3>
+        <p>Clean, even cuts at the right height for your grass. Bagged or mulched, your call.</p>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+            <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+            <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+            <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Edging &amp; Trimming</h3>
+        <p>Crisp edges along sidewalks, driveways, and flower beds. The detail that ties the yard together.</p>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22V10"/>
+            <path d="M12 10c-3-1-5-4-5-7 3 0 6 2 7 5"/>
+            <path d="M12 12c3-1 5-3 7-3-1 3-3 5-7 5"/>
+            <path d="M8 22h8"/>
+          </svg>
+        </div>
+        <h3>Weed Pulling</h3>
+        <p>Hand-pulled at the root in beds, rock, and walkway cracks. No half-measures.</p>
+      </div>
+
+      <div class="service reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 4l6 6"/>
+            <path d="M3 21l8-8"/>
+            <path d="M9 15l-3 3 1 3 3-1 3-3"/>
+            <path d="M14 4l-4 4 6 6 4-4"/>
+          </svg>
+        </div>
+        <h3>Yard Clean-Up</h3>
+        <p>Leaves, sticks, debris, and post-storm messes hauled out so the yard's ready for whatever's next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATED MOWING STRIPES -->
+<div class="wrap"><div class="mow-divider" aria-hidden="true">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 22V12"/>
+    <path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/>
+    <path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/>
+  </svg>
+</div></div>
+
+<!-- PARALLAX PHOTO BAND -->
+<section class="showcase" id="work" aria-label="Our work">
+  <div class="showcase-img" data-parallax="0.25"></div>
+  <div class="showcase-content">
+    <div class="showcase-inner reveal">
+      <span class="label">Our work</span>
+      <h2>Stripes you can see <em>from the porch</em>.</h2>
+      <p>
+        Sharp lines, clean edges, lawns that look cared for — not just cut.
+        We treat every yard like the neighbor we hope to wave at all summer.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">Pricing</span>
+      <h2 class="h2">Fair, flat, and easy to remember.</h2>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-headline">
+          <span class="price-prefix">Starting at</span>
+          <div class="price">$40</div>
+        </div>
+        <p class="price-sub">Most South Weber yards, per visit. We'll confirm with a quick look before we start.</p>
+
+        <ul class="included">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/><path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/></svg>
+            Mow, edge, trim, and blow — every visit
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/><path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/></svg>
+            Bagging or mulching — your call
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/><path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/></svg>
+            Same crew every visit, same standards
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V12"/><path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/><path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/></svg>
+            Free estimate — text us a photo of your yard
+          </li>
+        </ul>
+
+        <p class="price-note">
+          Larger yards, weed-pull projects, and full clean-ups are quoted
+          separately — but always up front before we start. No surprises.
+        </p>
+      </div>
+
+      <figure class="garden-card reveal" style="margin:0">
+        <img src="garden.jpg" alt="A stone-clad Utah home with a xeriscaped front yard — dry creek bed with river rocks, wildflowers in yellow, pink, and purple, ornamental grasses, and the Wasatch mountains behind" loading="lazy" />
+        <figcaption class="caption">The standard</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- DISCOUNT BANNER -->
+<section class="wrap" id="discount">
+  <div class="pitch reveal">
+    <div class="badge" data-parallax-soft="0.06">
+      <div>
+        <div class="save">Save</div>
+        <div class="amt">$$</div>
+        <div class="small">Together</div>
+      </div>
+    </div>
+    <div class="pitch-inner">
+      <span class="label">Neighborhood Discount</span>
+      <h2>Grab a neighbor. Save together.</h2>
+      <p>
+        When multiple homes on the same street sign up, everyone on the
+        block pays less. Mention it when you call — we'll work out a fair
+        rate for the whole crew of houses.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">Get in touch</span>
+      <h2 class="h2">Call or text. We answer fast.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <a class="crew reveal" href="tel:+13852987310" aria-label="Call or text Wyatt at 385-298-7310">
+        <div class="avatar">W</div>
+        <div class="meta">
+          <span class="who-name">Wyatt</span>
+          <span class="who-num">385-298-7310</span>
+          <span class="who-tag">Call or Text</span>
+        </div>
+      </a>
+
+      <a class="crew reveal" href="tel:+18016906928" aria-label="Call or text Kaleb at 801-690-6928">
+        <div class="avatar">K</div>
+        <div class="meta">
+          <span class="who-name">Kaleb</span>
+          <span class="who-num">801-690-6928</span>
+          <span class="who-tag">Call or Text</span>
+        </div>
+      </a>
+
+      <a class="crew reveal" href="tel:+13853912344" aria-label="Call or text Charlie at 385-391-2344">
+        <div class="avatar">C</div>
+        <div class="meta">
+          <span class="who-name">Charlie</span>
+          <span class="who-num">385-391-2344</span>
+          <span class="who-tag">Call or Text</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footmark">Back Yard Crew</div>
+    <div class="footnote">South Weber, Utah · Summer 2026 · Locally run by Wyatt, Kaleb &amp; Charlie</div>
+  </div>
+</footer>
+
+<!-- ============ ABOUT MODAL ============ -->
+<dialog id="about-modal" class="modal" aria-labelledby="about-title">
+  <div class="modal-inner">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+
+    <div class="about-logo">
+      <picture>
+        <source srcset="logo-dark.png" media="(prefers-color-scheme: dark)">
+        <img src="logo.png" alt="Back Yard Crew" />
+      </picture>
+    </div>
+
+    <div class="about-eyebrow"><span class="label">About Us</span></div>
+
+    <h2 id="about-title" class="about-headline">
+      Built on growth, hard work, and <em>pride</em>.
+    </h2>
+
+    <p class="about-body">
+      Back Yard Crew is local. Wyatt, Kaleb, and Charlie are South Weber
+      students keeping the neighborhood looking sharp this summer. Three
+      sets of hands and one simple idea — yards on our street should look
+      like the people who live there care. The logo says the rest: a leaf
+      for healthy growth, clean lines for honest effort, and an arch we
+      stand behind.
+    </p>
+
+    <div class="about-pillars">
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22V12"/>
+            <path d="M12 12C12 8 9 5 4 5c0 5 3 8 8 7z"/>
+            <path d="M12 12C12 9 14 6 18 6c0 4-3 7-6 6z"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Growth</h4>
+          <p>Healthy lawns, new growth, and lasting results.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M12 4 L4 22"/>
+            <path d="M12 4 L8 22"/>
+            <path d="M12 4 L12 22"/>
+            <path d="M12 4 L16 22"/>
+            <path d="M12 4 L20 22"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Hard Work</h4>
+          <p>Clean lines, precision, and a job done right.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 22 V12 a8 8 0 0 1 16 0 V22"/>
+          </svg>
+        </div>
+        <div>
+          <h4>Pride</h4>
+          <p>Our name is on every yard we touch.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Modal open triggers (run before the anchor-scroll handler so these win)
+  document.querySelectorAll('[data-modal-open]').forEach(el => {
+    el.addEventListener('click', (e) => {
+      const id = el.dataset.modalOpen;
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      e.preventDefault();
+      if (typeof modal.showModal === 'function') {
+        modal.showModal();
+      } else {
+        modal.setAttribute('open', '');
+      }
+    });
+  });
+  // Modal close — explicit close button OR clicking the backdrop
+  document.querySelectorAll('dialog.modal').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target.matches('[data-modal-close]') || e.target === modal) {
+        modal.close ? modal.close() : modal.removeAttribute('open');
+      }
+    });
+  });
+
+  // In-page anchor links — explicit smooth-scroll so this works reliably
+  // (some embed contexts block default hash-anchor jumps)
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    if (a.dataset.modalOpen) return;   // skip modal triggers
+    a.addEventListener('click', (e) => {
+      const id = a.getAttribute('href').slice(1);
+      if (!id) return;
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: reduced ? 'auto' : 'smooth',
+        block: 'start'
+      });
+    });
+  });
+
+  // Lawn mowing mini-game in the hero
+  (() => {
+    const field = document.querySelector('[data-lawn-game]');
+    if (!field) return;
+    const counterEl = document.querySelector('[data-lawn-counter]');
+    const resetBtn = document.querySelector('[data-lawn-reset]');
+
+    const W = 600, H = 140, groundY = 134;
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    svg.setAttribute('preserveAspectRatio', 'none');
+    svg.setAttribute('aria-hidden', 'true');
+    field.appendChild(svg);
+
+    // ===== Particle effects =====
+    function spawnSeeds(x, y){
+      for (let i = 0; i < 7; i++){
+        const seed = document.createElementNS(svgNS, 'circle');
+        seed.setAttribute('cx', x.toFixed(2));
+        seed.setAttribute('cy', y.toFixed(2));
+        seed.setAttribute('r', '1.2');
+        seed.setAttribute('fill', '#faf5ef');
+        seed.classList.add('lg-particle');
+        svg.appendChild(seed);
+        const angle = -Math.PI / 2 + (Math.random() - 0.5) * 1.6;
+        const dist = 28 + Math.random() * 42;
+        const dx = Math.cos(angle) * dist, dy = Math.sin(angle) * dist;
+        seed.animate(
+          [{ transform: 'translate(0,0)', opacity: 1 },
+           { transform: `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px)`, opacity: 0 }],
+          { duration: 1100, easing: 'cubic-bezier(.3,.5,.3,1)', fill: 'forwards' }
+        );
+        setTimeout(() => seed.remove(), 1100);
+      }
+    }
+    function spawnPetals(x, y, color){
+      for (let i = 0; i < 5; i++){
+        const p = document.createElementNS(svgNS, 'ellipse');
+        p.setAttribute('cx', x.toFixed(2));
+        p.setAttribute('cy', y.toFixed(2));
+        p.setAttribute('rx', '2.5');
+        p.setAttribute('ry', '1.4');
+        p.setAttribute('fill', color);
+        p.classList.add('lg-particle');
+        svg.appendChild(p);
+        const angle = (Math.random() - 0.5) * 1.4;
+        const dx = Math.sin(angle) * (12 + Math.random() * 18);
+        const dy = 10 + Math.random() * 14;
+        const rot = (Math.random() - 0.5) * 360;
+        p.animate(
+          [{ transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+           { transform: `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${rot.toFixed(0)}deg)`, opacity: 0 }],
+          { duration: 950, easing: 'cubic-bezier(.4,0,.6,1)', fill: 'forwards' }
+        );
+        setTimeout(() => p.remove(), 950);
+      }
+    }
+
+    // ===== Item factories =====
+    function makeGrass(x){
+      const fullH = 60 + Math.random() * 55;
+      const lean = (Math.random() - 0.5) * 10;
+      const hue = 95 + Math.random() * 30;
+      const sat = 16 + Math.random() * 18;
+      const light = 28 + Math.random() * 16;
+      const el = document.createElementNS(svgNS, 'path');
+      el.classList.add('blade');
+      el.style.fill = `hsl(${hue}, ${sat}%, ${light}%)`;
+      svg.appendChild(el);
+      const draw = (h) => {
+        const r = h / fullH;
+        const tipX = x + lean * r, tipY = groundY - h;
+        const baseL = x - 2.2, baseR = x + 2.2;
+        const midX = x + lean * 0.55 * r, midY = groundY - h * 0.55;
+        el.setAttribute('d', `M${baseL.toFixed(2)},${groundY} Q${(midX-0.7).toFixed(2)},${midY.toFixed(2)} ${tipX.toFixed(2)},${tipY.toFixed(2)} Q${(midX+0.7).toFixed(2)},${midY.toFixed(2)} ${baseR.toFixed(2)},${groundY} Z`);
+      };
+      draw(fullH);
+      return { x, fullH, h: fullH, draw };
+    }
+
+    function makeDandelion(x){
+      const fullH = 90 + Math.random() * 28;
+      const stemColor = '#5a7560';
+      const g = document.createElementNS(svgNS, 'g'); svg.appendChild(g);
+      const stem = document.createElementNS(svgNS, 'path');
+      stem.classList.add('blade'); stem.setAttribute('fill', stemColor);
+      g.appendChild(stem);
+      const bloom = document.createElementNS(svgNS, 'g');
+      bloom.classList.add('lg-head');
+      const c = document.createElementNS(svgNS, 'circle');
+      c.setAttribute('r', '4.5'); c.setAttribute('fill', '#d4a865');
+      bloom.appendChild(c);
+      for (let i = 0; i < 12; i++){
+        const a = (i / 12) * Math.PI * 2;
+        const line = document.createElementNS(svgNS, 'line');
+        line.setAttribute('x1', (Math.cos(a) * 4).toFixed(1));
+        line.setAttribute('y1', (Math.sin(a) * 4).toFixed(1));
+        line.setAttribute('x2', (Math.cos(a) * 6.4).toFixed(1));
+        line.setAttribute('y2', (Math.sin(a) * 6.4).toFixed(1));
+        line.setAttribute('stroke', '#d4a865');
+        line.setAttribute('stroke-width', '0.8');
+        line.setAttribute('stroke-linecap', 'round');
+        bloom.appendChild(line);
+      }
+      g.appendChild(bloom);
+      let blown = false;
+      const draw = (h) => {
+        const tipY = groundY - h;
+        const stemTop = h > 10 ? tipY + 4 : tipY;
+        stem.setAttribute('d', `M${(x-0.7).toFixed(2)},${groundY} L${(x-0.3).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.3).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.7).toFixed(2)},${groundY} Z`);
+        if (h > 18){
+          bloom.style.opacity = '1';
+          bloom.setAttribute('transform', `translate(${x.toFixed(2)} ${(tipY+1).toFixed(2)})`);
+        } else {
+          if (!blown){ spawnSeeds(x, groundY - 18); blown = true; }
+          bloom.style.opacity = '0';
+        }
+      };
+      draw(fullH);
+      return { x, fullH, h: fullH, draw, reset: () => { blown = false; } };
+    }
+
+    function makeDaisy(x){
+      const fullH = 50 + Math.random() * 28;
+      const stemColor = '#5a7560';
+      const g = document.createElementNS(svgNS, 'g'); svg.appendChild(g);
+      const stem = document.createElementNS(svgNS, 'path');
+      stem.classList.add('blade'); stem.setAttribute('fill', stemColor);
+      g.appendChild(stem);
+      const flower = document.createElementNS(svgNS, 'g');
+      flower.classList.add('lg-head');
+      for (let i = 0; i < 6; i++){
+        const a = (i / 6) * Math.PI * 2;
+        const cx = Math.cos(a) * 2.8, cy = Math.sin(a) * 2.8;
+        const petal = document.createElementNS(svgNS, 'ellipse');
+        petal.setAttribute('cx', cx.toFixed(2));
+        petal.setAttribute('cy', cy.toFixed(2));
+        petal.setAttribute('rx', '2.6'); petal.setAttribute('ry', '1.5');
+        petal.setAttribute('transform', `rotate(${(a*180/Math.PI).toFixed(0)} ${cx.toFixed(2)} ${cy.toFixed(2)})`);
+        petal.setAttribute('fill', '#fdf9f2');
+        petal.setAttribute('stroke', '#d4c8a8');
+        petal.setAttribute('stroke-width', '0.3');
+        flower.appendChild(petal);
+      }
+      const center = document.createElementNS(svgNS, 'circle');
+      center.setAttribute('r', '1.8'); center.setAttribute('fill', '#d4a865');
+      flower.appendChild(center);
+      g.appendChild(flower);
+      let dropped = false;
+      const draw = (h) => {
+        const tipY = groundY - h;
+        const stemTop = h > 8 ? tipY + 3 : tipY;
+        stem.setAttribute('d', `M${(x-0.6).toFixed(2)},${groundY} L${(x-0.25).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.25).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.6).toFixed(2)},${groundY} Z`);
+        if (h > 14){
+          flower.style.opacity = '1';
+          flower.setAttribute('transform', `translate(${x.toFixed(2)} ${(tipY+1).toFixed(2)})`);
+        } else {
+          if (!dropped){ spawnPetals(x, groundY - 14, '#fdf9f2'); dropped = true; }
+          flower.style.opacity = '0';
+        }
+      };
+      draw(fullH);
+      return { x, fullH, h: fullH, draw, reset: () => { dropped = false; } };
+    }
+
+    function makeClover(x){
+      const fullH = 34 + Math.random() * 22;
+      const stemColor = '#5a7560';
+      const g = document.createElementNS(svgNS, 'g'); svg.appendChild(g);
+      const stem = document.createElementNS(svgNS, 'path');
+      stem.classList.add('blade'); stem.setAttribute('fill', stemColor);
+      g.appendChild(stem);
+      const cluster = document.createElementNS(svgNS, 'g');
+      cluster.classList.add('lg-head');
+      [[-2, 1], [2, 1], [0, -0.5], [-1.2, -2], [1.2, -2]].forEach(([dx, dy]) => {
+        const c = document.createElementNS(svgNS, 'circle');
+        c.setAttribute('cx', dx.toFixed(2)); c.setAttribute('cy', dy.toFixed(2));
+        c.setAttribute('r', '1.6'); c.setAttribute('fill', '#d18a93');
+        cluster.appendChild(c);
+      });
+      g.appendChild(cluster);
+      let dropped = false;
+      const draw = (h) => {
+        const tipY = groundY - h;
+        const stemTop = h > 6 ? tipY + 2 : tipY;
+        stem.setAttribute('d', `M${(x-0.4).toFixed(2)},${groundY} L${(x-0.2).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.2).toFixed(2)},${stemTop.toFixed(2)} L${(x+0.4).toFixed(2)},${groundY} Z`);
+        if (h > 10){
+          cluster.style.opacity = '1';
+          cluster.setAttribute('transform', `translate(${x.toFixed(2)} ${(tipY+1).toFixed(2)})`);
+        } else {
+          if (!dropped){ spawnPetals(x, groundY - 10, '#d18a93'); dropped = true; }
+          cluster.style.opacity = '0';
+        }
+      };
+      draw(fullH);
+      return { x, fullH, h: fullH, draw, reset: () => { dropped = false; } };
+    }
+
+    // ===== Mix grass with weeds + flowers =====
+    const NUM_GRASS = 55, NUM_DAND = 4, NUM_DAISY = 6, NUM_CLOVER = 3;
+    const TOTAL = NUM_GRASS + NUM_DAND + NUM_DAISY + NUM_CLOVER;
+    const positions = [];
+    for (let i = 0; i < TOTAL; i++){
+      const baseX = (i / (TOTAL - 1)) * W;
+      positions.push(baseX + (Math.random() - 0.5) * 5);
+    }
+    const types = [];
+    for (let i = 0; i < NUM_DAND; i++) types.push('dandelion');
+    for (let i = 0; i < NUM_DAISY; i++) types.push('daisy');
+    for (let i = 0; i < NUM_CLOVER; i++) types.push('clover');
+    while (types.length < TOTAL) types.push('grass');
+    for (let i = types.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [types[i], types[j]] = [types[j], types[i]];
+    }
+    const items = positions.map((x, i) => {
+      const t = types[i];
+      if (t === 'dandelion') return makeDandelion(x);
+      if (t === 'daisy') return makeDaisy(x);
+      if (t === 'clover') return makeClover(x);
+      return makeGrass(x);
+    });
+
+    // ===== Interaction =====
+    let dragging = false;
+    let cutCount = 0;
+
+    const localPos = (clientX, clientY) => {
+      const r = field.getBoundingClientRect();
+      return { x: ((clientX - r.left) / r.width) * W, y: ((clientY - r.top) / r.height) * H };
+    };
+
+    function updateCounter(){
+      if (!counterEl) return;
+      if (cutCount === 0) counterEl.textContent = 'Try it — drag your finger';
+      else if (cutCount < 20) counterEl.textContent = `${cutCount} blade${cutCount === 1 ? '' : 's'} cut`;
+      else if (cutCount < 50) counterEl.textContent = `Nice — ${cutCount} down`;
+      else counterEl.textContent = `Looking sharp. ${cutCount} cut.`;
+    }
+
+    function cutAt(x, y){
+      const reach = 20;
+      let cutNow = 0;
+      items.forEach(b => {
+        if (Math.abs(b.x - x) > reach) return;
+        const target = Math.max(6, Math.min(b.h, groundY - y));
+        if (target < b.h - 1.5){
+          if (b.h > 24 && target <= 24) cutNow++;
+          b.h = target;
+          b.draw(target);
+        }
+      });
+      if (cutNow){ cutCount += cutNow; updateCounter(); }
+    }
+
+    field.addEventListener('pointerdown', e => {
+      dragging = true;
+      field.setPointerCapture?.(e.pointerId);
+      const p = localPos(e.clientX, e.clientY);
+      cutAt(p.x, p.y);
+      e.preventDefault();
+    });
+    field.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      const p = localPos(e.clientX, e.clientY);
+      cutAt(p.x, p.y);
+    });
+    const stop = () => { dragging = false; };
+    field.addEventListener('pointerup', stop);
+    field.addEventListener('pointercancel', stop);
+    field.addEventListener('pointerleave', stop);
+
+    resetBtn?.addEventListener('click', () => {
+      items.forEach(b => { b.h = b.fullH; b.reset?.(); b.draw(b.fullH); });
+      cutCount = 0;
+      updateCounter();
+    });
+  })();
+
+  // Reading progress bar
+  const progress = document.getElementById('progress');
+  const onScroll = () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop;
+    const total = h.scrollHeight - h.clientHeight;
+    const pct = total > 0 ? (scrolled / total) * 100 : 0;
+    progress.style.width = pct + '%';
+  };
+  window.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // Reveal on scroll
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting){
+        const idx = Array.from(items).indexOf(entry.target);
+        entry.target.style.transitionDelay = (Math.min(idx, 6) * 70) + 'ms';
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.05, rootMargin: "0px 0px -10% 0px" });
+  items.forEach(el => io.observe(el));
+
+  // Parallax (off if user prefers reduced motion)
+  if (reduced) return;
+
+  const parallaxEls = document.querySelectorAll('[data-parallax]');
+  const softEls     = document.querySelectorAll('[data-parallax-soft]');
+
+  let ticking = false;
+  const update = () => {
+    const vh = window.innerHeight;
+
+    parallaxEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallax) || 0.25;
+      const rect = el.parentElement.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - vh / 2;
+      const offset = -center * speed;
+      el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
+    });
+
+    softEls.forEach(el => {
+      const speed = parseFloat(el.dataset.parallaxSoft) || 0.05;
+      const rect = el.getBoundingClientRect();
+      const center = rect.top + rect.height / 2 - vh / 2;
+      const offset = -center * speed;
+      el.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0) rotate(-8deg)`;
+    });
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking){ window.requestAnimationFrame(update); ticking = true; }
+  }, { passive:true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+
+</body>
+</html>
